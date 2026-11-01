@@ -13,7 +13,7 @@ async function get(url, json = true) {
 }
 // Public endpoints only. No private repositories, tokens, prompts, or file paths.
 const [calendar, account, repos] = await Promise.all([
-  get(`https://github.com/users/${p.username}/contributions`, false).then(parseCalendar),
+  get(`https://github.com/users/${p.username}/contributions`, false).then(html => parseCalendar(html, { months: 3 })),
   get(`https://api.github.com/users/${p.username}`),
   Promise.all(p.projects.filter(x => x.publicRepo).map(async x => [x.publicRepo, await get(`https://api.github.com/repos/${p.username}/${x.publicRepo}`)]))
 ]);
@@ -28,4 +28,4 @@ const snapshot = { observedOn: new Intl.DateTimeFormat('en-CA', { timeZone:'Asia
 const target = resolve(root, 'data/github.json');
 await writeFile(target + '.tmp', JSON.stringify(snapshot, null, 2) + '\n', 'utf8');
 await rename(target + '.tmp', target);
-console.log(`Updated public GitHub aggregate: ${calendar.contributions} contributions, ${calendar.activeDays} active days.`);
+console.log(`Updated public GitHub aggregate for the last 3 months: ${calendar.contributions} contributions, ${calendar.activeDays} active days.`);

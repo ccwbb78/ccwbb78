@@ -21,7 +21,14 @@ function attrs(tag) {
   return Object.fromEntries(Array.from(tag.matchAll(/([\w:-]+)="([^"]*)"/g), m => [m[1], m[2]]));
 }
 
-export function parseCalendar(html) {
+function shiftMonths(date, months) {
+  const [y, m, d] = date.split('-').map(Number);
+  const total = y * 12 + m - 1 - months;
+  const lastDay = new Date(Date.UTC(Math.floor(total / 12), (total % 12) + 1, 0)).getUTCDate();
+  return `${Math.floor(total / 12)}-${String((total % 12) + 1).padStart(2, '0')}-${String(Math.min(d, lastDay)).padStart(2, '0')}`;
+}
+
+export function parseCalendar(html, { months = 12 } = {}) {
   const tips = new Map();
   const tipsByCell = new Map();
   for (const match of html.matchAll(/<tool-tip\b([^>]*)>([\s\S]*?)<\/tool-tip>/g)) {
@@ -43,13 +50,18 @@ export function parseCalendar(html) {
   }
   const heading = html.replace(/<[^>]*>/g, ' ').match(/([\d,]+)\s+contributions?\s+in the last year/i);
   if (days.size < 350 || days.size > 371 || !heading) throw new Error('Incomplete contribution calendar');
-  const contributions = [...days.values()].reduce((a, b) => a + b, 0);
-  if (contributions !== Number(heading[1].replaceAll(',', ''))) throw new Error('Calendar total does not match heading');
+  const total = [...days.values()].reduce((a, b) => a + b, 0);
+  if (total !== Number(heading[1].replaceAll(',', ''))) throw new Error('Calendar total does not match heading');
   const dates = [...days.keys()].sort();
+  // A shorter window is a subset of the calendar, so the full-year total still
+  // guards the heading and the rounded percentage.
+  const cutoff = months >= 12 ? null : shiftMonths(dates.at(-1), months);
+  const windowDates = cutoff ? dates.filter(d => d > cutoff) : dates;
+  const contributions = windowDates.reduce((sum, d) => sum + days.get(d), 0);
   // The profile percentage is rounded. Only infer an exact all-commit count
   // below 200 total contributions, where one non-commit would round to >=1%.
-  const allCommits = contributions > 0 && contributions < 200 && /The contributions are\s+100% commits,\s+0% issues,\s+0% pull requests,\s+0% code review/.test(html);
-  return { from: dates[0], to: dates.at(-1), contributions, commits: allCommits ? contributions : null, activeDays: [...days.values()].filter(n => n > 0).length };
+  const allCommits = total > 0 && total < 200 && /The contributions are\s+100% commits,\s+0% issues,\s+0% pull requests,\s+0% code review/.test(html);
+  return { from: windowDates[0], to: windowDates.at(-1), contributions, commits: allCommits ? contributions : null, activeDays: windowDates.filter(d => days.get(d) > 0).length };
 }
 
 export function validateProfile(p) {

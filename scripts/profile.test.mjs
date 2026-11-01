@@ -12,6 +12,15 @@ function fixture() {
 test('calendar aggregates dates and keeps a precise period', () => {
   assert.deepEqual(parseCalendar(fixture()), { from:'2025-11-02', to:'2026-11-01', contributions:174, commits:174, activeDays:174 });
 });
+test('restricts statistics to the last three months', () => {
+  const days = Array.from({ length:365 }, (_, i) => {
+    const date = new Date(Date.UTC(2025, 10, 2 + i)).toISOString().slice(0,10);
+    const label = i >= 273 ? '1 contribution' : 'No contributions';
+    return `<td data-date="${date}" aria-labelledby="tip-${i}"></td><tool-tip id="tip-${i}">${label} on date.</tool-tip>`;
+  }).join('');
+  const html = `<h2>92 contributions in the last year</h2>${days}<title>The contributions are 100% commits, 0% issues, 0% pull requests, 0% code review.</title>`;
+  assert.deepEqual(parseCalendar(html, { months:3 }), { from:'2026-08-02', to:'2026-11-01', contributions:92, commits:92, activeDays:92 });
+});
 test('does not mislabel mixed contributions as commits', () => {
   assert.equal(parseCalendar(fixture().replace('100% commits', '99% commits')).commits, null);
 });

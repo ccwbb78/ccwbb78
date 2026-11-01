@@ -15,7 +15,7 @@ npm run check
 
 ## 数据口径
 
-- GitHub 卡片是近一年贡献口径，不是所有分支的全历史提交总数。
+- GitHub 卡片是近三个月贡献口径（滚动窗口），不是所有分支的全历史提交总数。
 - 当公开贡献图能够支持精确的全提交分类时显示 `Commits`，否则显示 `Contributions`，避免将 issue、PR 等贡献误算为提交。
 - `Active Days` 为同一区间内至少有一次贡献的日期数。
 - `Code Time` 和 `AI Code Time` 当前为手动快照，更新时间在 `profile.json` 中。尚未接入 WakaTime 自动更新，两项可能重叠，不应相加。
