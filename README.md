@@ -11,7 +11,7 @@ Android 原生开发 · AI 功能集成 · Web 全栈实践
 
 <picture>
 <source media="(max-width: 600px)" srcset="./assets/generated/overview-mobile.svg" />
-<img src="./assets/generated/overview.svg" width="800" alt="GitHub activity: 174 Commits, 50 active days" />
+<img src="./assets/generated/overview.svg" width="800" alt="GitHub activity: 176 Commits, 51 active days" />
 </picture>
 
 <p>
