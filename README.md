@@ -49,7 +49,7 @@ Android 原生开发 · AI 功能集成 · Web 全栈实践
 ```text
 Android    Kotlin · Java · Compose
 Web        TypeScript · JavaScript · React
-Backend    Go · Workers · D1 · R2
+Backend    Go · Workers · D1 · R2 · FastAPI · Node.js · spring boot
 Workflow   Python · Git · AI tools
 ```
 
