@@ -1,0 +1,13 @@
+{
+  "name": "ccwbb78-profile",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node scripts/generate-profile.mjs",
+    "update": "node scripts/update-github.mjs && node scripts/generate-profile.mjs",
+    "test": "node --test scripts/profile.test.mjs",
+    "check": "node scripts/check-profile.mjs"
+  }
+}

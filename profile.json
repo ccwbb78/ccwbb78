@@ -1,0 +1,44 @@
+{
+  "username": "ccwbb78",
+  "displayName": "EVkkj",
+  "tagline": "构建有用的应用，也打磨使用它们的体验。",
+  "intro": "Android 原生开发 · AI 功能集成 · Web 全栈实践",
+  "codeTime": "233 hrs 54 mins",
+  "aiCodeTime": "121 hrs 23 mins",
+  "timeUpdatedOn": "2026-11-01",
+  "linesAddedEstimate": 50000,
+  "linesUpdatedOn": "2026-11-01",
+  "technologies": ["kotlin", "go", "java", "javascript", "typescript", "python", "react", "jetpackcompose", "cloudflare", "git"],
+  "projects": [
+    {
+      "id": "mimocode",
+      "title": "MiMoCode · Multimodal",
+      "description": "基于 MiMo Code 扩展多模态桥接与 Electron 桌面端，让截图输入融入编码工作流。",
+      "stack": "TypeScript · SolidJS · Electron",
+      "color": "#3178c6",
+      "publicRepo": "mimo-code-Multimodal-integration"
+    },
+    {
+      "id": "design-skills",
+      "title": "Design Skills",
+      "description": "把调研、视觉规范与前端实现整理成可复用的 AI 设计工作流，持续打磨界面审美。",
+      "stack": "Agent Skills · UI / UX · Frontend",
+      "color": "#a371f7",
+      "publicRepo": "design-skills"
+    },
+    {
+      "id": "study-app",
+      "title": "四级伴学",
+      "description": "原生 Android 学习应用，结合间隔复习、自适应学习节奏与 AI 辅助学习。",
+      "stack": "Kotlin · Compose · AI",
+      "color": "#a97bff"
+    },
+    {
+      "id": "ai-chat",
+      "title": "聊伴 Chatlove",
+      "description": "面向移动端的 AI 聊天应用，支持流式对话、多模态交互与持久化记忆。",
+      "stack": "TypeScript · React · Cloudflare",
+      "color": "#3178c6"
+    }
+  ]
+}

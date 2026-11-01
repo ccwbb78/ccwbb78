@@ -1,0 +1,10 @@
+# Local planning, private repository analysis, and review previews.
+/.local/
+/profile-proposal*.md
+/profile-preview*.html
+/private-repo-*
+node_modules/
+.env
+.env.*
+!.env.example
+*.tmp
