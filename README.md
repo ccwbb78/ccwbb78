@@ -11,7 +11,7 @@ Android 原生开发 · AI 功能集成 · Web 全栈实践
 
 <picture>
 <source media="(max-width: 600px)" srcset="./assets/generated/overview-mobile.svg" />
-<img src="./assets/generated/overview.svg" width="800" alt="GitHub activity: 155 Commits, 43 active days" />
+<img src="./assets/generated/overview.svg" width="800" alt="GitHub activity: 153 Commits, 43 active days" />
 </picture>
 
 <p>
@@ -49,7 +49,7 @@ Android 原生开发 · AI 功能集成 · Web 全栈实践
 ```text
 Android    Kotlin · Java · Compose
 Web        TypeScript · JavaScript · React
-Backend    Go · Workers · D1 · R2 · FastAPI · Node.js · spring boot
+Backend    Go · Workers · D1 · R2
 Workflow   Python · Git · AI tools
 ```
 
@@ -63,4 +63,4 @@ Workflow   Python · Git · AI tools
 
 </details>
 
-<sub>GitHub 统计区间（近三个月）：2026-08-02 — 2026-11-01。(编码时长非三个月统计区间 而是截至至11月1日的准确统计) 仅展示聚合数据。</sub>
+<sub>GitHub 统计区间（近三个月）：2026-08-03 — 2026-11-02。仅展示聚合数据。</sub>
