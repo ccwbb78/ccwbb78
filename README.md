@@ -49,7 +49,7 @@ Android 原生开发 · AI 功能集成 · Web 全栈实践
 ```text
 Android    Kotlin · Java · Compose
 Web        TypeScript · JavaScript · React
-Backend    Go · Workers · D1 · R2
+Backend    Go · Workers · D1 · R2 · FastAPI · Node.js · Spring Boot
 Workflow   Python · Git · AI tools
 ```
 
@@ -63,4 +63,4 @@ Workflow   Python · Git · AI tools
 
 </details>
 
-<sub>GitHub 统计区间（近三个月）：2026-08-10 — 2026-11-09。仅展示聚合数据。</sub>
+<sub>GitHub 统计区间（近三个月）：2026-08-11 — 2026-11-10。编码时长非近三个月统计区间，而是截至 2026-11-01 的准确统计。仅展示聚合数据。</sub>
